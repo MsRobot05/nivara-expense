@@ -5,9 +5,9 @@
   <br />
   Streamlining expense voucher creation, review, and approval workflows.
   <br /><br />
-  <a href="https://nivara-expense.vercel.app/"><strong>🚀 Live Demo</strong></a>
+  <a href="https://nivara-expense.vercel.app/"><strong>  Live Demo</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/MsRobot05/nivara-expense"><strong>📂 GitHub Repository</strong></a>
+  <a href="https://github.com/MsRobot05/nivara-expense"><strong> GitHub Repository</strong></a>
 </p>
 
 <p align="center">
