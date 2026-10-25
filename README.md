@@ -1,24 +1,24 @@
 # Nivara | Expense Voucher Management System
 
+**A web-based approach to expense voucher management.**
+
+Built with React, Vite, and Supabase.
+
 <p align="center">
-  <strong>A web-based approach to expense voucher management.</strong>
-  <br />
-  Built with React, Vite, and Supabase.
-  <br /><br />
-  <a href="https://nivara-expense.vercel.app/"><strong>View Live Demo</strong></a>
+  <a href="https://nivara-expense.vercel.app/"><strong>Live Demo</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/MsRobot05/nivara-expense"><strong>Explore Source Code</strong></a>
+  <a href="https://github.com/MsRobot05/nivara-expense"><strong>Source Code</strong></a>
 </p>
 
 ---
 
-## Project Overview
+## Overview
 
-**Nivara** is an expense voucher management application developed as part of a Full Stack Developer Internship assignment. The project focuses on providing a web interface for expense-related information and a foundation for organizing voucher submission, review, and tracking workflows.
+Nivara is an expense voucher management application developed as part of a Full Stack Developer Internship assignment. It provides a web interface for working with expense-related information and explores the organization of voucher submission, review, and tracking workflows.
 
-The application combines a React-based frontend with Supabase services and is deployed on Vercel.
+The frontend is deployed on Vercel and integrates with Supabase services. Login and dashboard access have been tested in the deployed application.
 
-### Project at a Glance
+## Project at a Glance
 
 | Category | Details |
 |---|---|
@@ -27,77 +27,59 @@ The application combines a React-based frontend with Supabase services and is de
 | Build Tool | Vite |
 | Backend Services | Supabase |
 | Frontend Hosting | Vercel |
-| Live Application | [nivara-expense.vercel.app](https://nivara-expense.vercel.app/) |
+| Live Demo | [Open Nivara](https://nivara-expense.vercel.app/) |
 | Source Code | [GitHub Repository](https://github.com/MsRobot05/nivara-expense) |
 
 ## Contents
 
-- [Overview](#overview)
 - [Key Capabilities](#key-capabilities)
 - [Application Screenshots](#application-screenshots)
 - [Technology Stack](#technology-stack)
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
-- [Local Setup](#local-setup)
-- [Environment Configuration](#environment-configuration)
-- [Running the Project](#running-the-project)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Running the Application](#running-the-application)
 - [Demo and Evaluation](#demo-and-evaluation)
-- [Verification Checklist](#verification-checklist)
+- [Testing Checklist](#testing-checklist)
 - [Security](#security)
 - [Deployment](#deployment)
 - [Future Enhancements](#future-enhancements)
 - [Author](#author)
 
-## Overview
-
-Expense voucher processes involve recording expense details, maintaining supporting information, and tracking the progress of submissions and reviews. Nivara explores how these activities can be organized within a web application.
-
-The project demonstrates the integration of a modern frontend, backend services, authentication, and a deployed web interface.
-
-The deployed application has been tested for login and dashboard access. The availability of individual voucher operations and role-specific permissions depends on the implemented functionality.
-
 ## Key Capabilities
 
 ### Application Access
-- Login interface for accessing the application.
-- Dashboard displayed after successful login in the tested environment.
+- Login interface.
+- Dashboard access after successful login in the tested environment.
 
 ### Expense Voucher Management
-The project is designed around expense voucher management. The available creation, editing, submission, and tracking operations should be evaluated against the current implementation.
+The application is focused on organizing expense-related information. Voucher creation, editing, submission, and tracking should be described as available features only where they are implemented in the current version.
 
 ### Review Workflow
-The project scope includes expense review and tracking. Approval, rejection, status transitions, and role-specific permissions should be considered available only where implemented and verified.
+The project scope includes expense review and tracking. Approval, rejection, workflow status changes, and role-specific permissions should be verified against the current implementation.
 
 ## Application Screenshots
 
-<img width="1892" height="922" alt="image" src="https://github.com/user-attachments/assets/8543ff55-65e7-4fac-9d7e-39f469b21935" />
+Add genuine screenshots captured from your application. Save them in `docs/screenshots/` at the repository root, using the filenames below.
 
+### Login Page
 
-### 01 — Login
+![Nivara login page](docs/screenshots/login.png)
 
-<img width="1891" height="898" alt="image" src="https://github.com/user-attachments/assets/2c04bde8-a846-4c97-8a87-3f8e72c38cd4" />
+### Dashboard
 
+![Nivara dashboard](docs/screenshots/dashboard.png)
 
-### 02 — Dashboard
+### Voucher Management
 
-<img width="1896" height="702" alt="image" src="https://github.com/user-attachments/assets/0fba4cc2-e163-4c78-93e3-3a89252751fa" />
+![Nivara voucher management](docs/screenshots/vouchers.png)
 
+### Review Workflow
 
-*The dashboard displayed after login.*
+![Nivara review workflow](docs/screenshots/review-workflow.png)
 
-### 03 — Voucher Management
-
-<img width="911" height="861" alt="image" src="https://github.com/user-attachments/assets/e7c8a258-30a2-4031-9dea-8016b1420edf" />
-
-
-
-
-### 04 — Review Workflow
-
-<img width="976" height="612" alt="image" src="https://github.com/user-attachments/assets/7d701100-d5ad-4ac7-ae7f-48a695f52bea" />
-<img width="1035" height="511" alt="image" src="https://github.com/user-attachments/assets/2e9779b5-ad77-45e4-85ff-6cc2af48780e" />
-
-
+*Include only screenshots of screens that exist in the current application. Use synthetic data and remove personal or sensitive information before publishing.*
 
 ## Technology Stack
 
@@ -106,37 +88,35 @@ The project scope includes expense review and tracking. Approval, rejection, sta
 | React | Frontend user interface |
 | Vite | Frontend development and build tooling |
 | Supabase | Backend services and application data integration |
-| Vercel | Frontend deployment and hosting |
+| Vercel | Frontend hosting and deployment |
 
 ## Architecture
 
-At a high level, the application connects the frontend to Supabase services.
+At a high level, the frontend connects to Supabase services.
 
 ```text
-┌──────────────────────────────┐
-│            User              │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│       React Frontend         │
-│       Built with Vite        │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│       Supabase Services      │
-│ Authentication and Data      │
-└──────────────────────────────┘
+                User
+                  |
+                  v
+        +--------------------+
+        |   React Frontend   |
+        |   Built with Vite  |
+        +--------------------+
+                  |
+                  v
+        +--------------------+
+        | Supabase Services  |
+        | Auth and Data      |
+        +--------------------+
 
-Frontend hosting: Vercel
+        Frontend hosted on Vercel
 ```
 
-This diagram illustrates the high-level integration, not a complete deployment or security diagram. Any separate server-side component should be documented according to its actual configuration.
+This diagram represents the high-level frontend integration. Any separate server component should be documented according to its actual responsibilities and deployment configuration.
 
 ## Project Structure
 
-The repository includes a frontend application and a server directory.
+The repository includes a frontend directory and a server directory.
 
 ```text
 nivara-expense/
@@ -158,63 +138,57 @@ nivara-expense/
 └── README.md
 ```
 
-*The structure above is a high-level guide. Consult the repository for the complete and current file layout.*
-
-## Local Setup
+## Getting Started
 
 ### Prerequisites
 
-Before starting, ensure that you have:
+- Node.js and npm
+- Git
+- A Supabase project configured for the application
 
-- [Node.js](https://nodejs.org/) and npm installed.
-- [Git](https://git-scm.com/) installed.
-- Access to the source repository.
-- A Supabase project configured for the application.
-
-### Step 1 — Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/MsRobot05/nivara-expense.git
 cd nivara-expense
 ```
 
-### Step 2 — Install Dependencies
+### 2. Install frontend dependencies
 
 ```bash
 cd client
 npm install
 ```
 
-### Step 3 — Configure Environment Variables
+### 3. Configure environment variables
 
 Create a `.env` file inside the `client/` directory:
 
 ```env
-VITE_SUPABASE_URL=https://nmzbqlpcktdqogqrvdls.supabase.co
-VITE_SUPABASE_ANON_KEY=sb_publishable_OvbIy3LGNCCDhiAPc4kMvw_LXl2Vi4j
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_publishable_or_anon_key
+```
 
-Replace the placeholders with the corresponding values from your Supabase project settings.
+Replace the placeholders with the appropriate values from your Supabase project settings. Do not commit your `.env` file.
 
-Do not commit the `.env` file or publish private credentials.
+### 4. Configure Supabase
 
-### Step 4 — Configure Supabase
+Configure the authentication and database resources required by the application. Database tables, access policies, and user profiles should match the actual source code.
 
-Configure the authentication and database resources required by the application.
+If the application requires a separately running server, configure its environment variables and dependencies as well.
 
-The database schema, access policies, and any required user profiles must match the current source code. If the application depends on additional server-side configuration, configure that separately before running the corresponding features.
-
-## Environment Configuration
+## Environment Variables
 
 | Variable | Description |
 |---|---|
 | `VITE_SUPABASE_URL` | URL of the Supabase project |
-| `VITE_SUPABASE_ANON_KEY` | Public client key used to initialize Supabase from the frontend |
+| `VITE_SUPABASE_ANON_KEY` | Public client key used by the frontend |
 
-Additional server environment variables, if required, should be documented separately.
+Document additional server-side variables if required by the current implementation.
 
-**Security note:** Variables prefixed with `VITE_` are included in client-side code. Never put a Supabase service-role key, database password, or other privileged secret in a frontend environment variable.
+**Security note:** Variables prefixed with `VITE_` are exposed to client-side code. Never place a service-role key, database password, or other privileged secret in frontend environment variables.
 
-## Running the Project
+## Running the Application
 
 From the `client/` directory, start the development server:
 
@@ -236,7 +210,7 @@ To preview the production build locally:
 npm run preview
 ```
 
-If the server component is required, install its dependencies and use the scripts defined in `server/package.json`. The server's startup command and environment requirements should follow the actual implementation.
+If the server component is required, install its dependencies and use the scripts defined in `server/package.json`.
 
 ## Demo and Evaluation
 
@@ -244,37 +218,34 @@ If the server component is required, install its dependencies and use the script
 
 **Source Code:** [https://github.com/MsRobot05/nivara-expense](https://github.com/MsRobot05/nivara-expense)
 
-The deployed login and dashboard have been tested in the current environment.
+Login and dashboard access have been tested in the deployed application.
 
-For evaluation, use a dedicated test account with synthetic data if authentication is required. Share credentials privately where appropriate; do not publish passwords or privileged keys in this repository.
+If the reviewer requires authentication, provide a dedicated test account with synthetic data. Share credentials privately rather than publishing passwords in the repository.
 
-## Verification Checklist
+## Testing Checklist
 
-The following checks are recommended when reviewing the application.
+Use this checklist to evaluate the application before submission.
 
-| Area | Verification |
-|---|---|
-| Application access | Login and dashboard access |
-| Authentication | Invalid credentials and session behavior |
-| Navigation | Page refresh and navigation between available screens |
-| Voucher operations | Creation, editing, and persistence, where implemented |
-| Review workflow | Submission and review status transitions, where implemented |
-| Authorization | Access restrictions for implemented roles |
-| Error handling | Behavior when a request fails or data is unavailable |
-| Deployment | Live frontend loads and connects to the intended services |
+- [ ] Login works with valid credentials.
+- [ ] Invalid credentials are handled appropriately.
+- [ ] The dashboard loads after login.
+- [ ] Refresh and session behavior work correctly.
+- [ ] Implemented voucher operations behave as expected.
+- [ ] Changes persist after refresh where applicable.
+- [ ] Implemented review and status transitions work correctly.
+- [ ] Access restrictions are enforced for applicable roles.
+- [ ] Errors and unavailable data are handled gracefully.
 
-This checklist describes suggested verification steps, not a claim that every item has passed.
+These are recommended checks, not claims that every test has passed.
 
 ## Security
 
-Security is important for any application that handles expense-related information.
-
-- Keep environment files and private credentials out of version control.
+- Keep `.env` files and private credentials out of version control.
 - Never expose privileged backend keys in frontend code.
-- Configure appropriate database access policies for protected information.
-- Enforce sensitive permissions using trusted backend logic or database policies where required.
+- Configure suitable database access policies for protected data.
+- Enforce sensitive permissions through trusted server-side logic or database policies where required.
 - Use synthetic data for demonstrations.
-- Review repository files and hosting environment variables before submission.
+- Review tracked files and deployment environment variables before submission.
 
 ## Deployment
 
@@ -285,21 +256,19 @@ The frontend is deployed on Vercel.
 | Live Application | [Open Nivara](https://nivara-expense.vercel.app/) |
 | Source Repository | [View on GitHub](https://github.com/MsRobot05/nivara-expense) |
 
-The deployed frontend uses environment variables configured in the hosting environment. Backend deployment and server configuration depend on the application's actual setup.
+The frontend uses environment variables configured in the hosting environment. Any separate backend deployment requirements depend on the application's actual configuration.
 
 ## Future Enhancements
 
-Potential areas for further development include:
+Potential areas for future development include:
 
 - Expanded voucher creation and tracking workflows.
-- Clearer workflow status history.
+- Voucher status history and audit tracking.
 - More comprehensive role-based authorization.
 - Improved form validation and error feedback.
 - Search and filtering for voucher records.
-- Automated tests for core application workflows.
+- Automated tests for core workflows.
 - Additional accessibility and responsive design improvements.
-
-These are potential enhancements rather than claims about current functionality.
 
 ## Author
 
@@ -309,8 +278,5 @@ These are potential enhancements rather than claims about current functionality.
 
 ---
 
-<p align="center">
-  <strong>Nivara — Expense Voucher Management System</strong>
-  <br />
-  <sub>Full Stack Developer Internship Project</sub>
-</p>
+* Nivara — Expense Voucher Management System*  
+*Full Stack Developer Internship Project*
