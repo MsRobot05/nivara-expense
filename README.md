@@ -5,9 +5,9 @@
   <br />
   Streamlining expense voucher creation, review, and approval workflows.
   <br /><br />
-  <a href="https://nivara-expense.vercel.app/"><strong>  Live Demo</strong></a>
+  <a href="https://nivara-expense.vercel.app/"><strong>Live Demo</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/MsRobot05/nivara-expense"><strong> GitHub Repository</strong></a>
+  <a href="https://github.com/MsRobot05/nivara-expense"><strong>GitHub Repository</strong></a>
 </p>
 
 <p align="center">
@@ -30,21 +30,23 @@
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
-- [Database Schema](#database-schema)
 - [API Documentation](#api-documentation)
+  - [Authentication and Authorization](#authentication-and-authorization)
+- [Database Schema](#database-schema)
 - [Business Rules and Validation](#business-rules-and-validation)
 - [Security Considerations](#security-considerations)
 - [Assumptions and Limitations](#assumptions-and-limitations)
 - [Deployment](#deployment)
 - [Future Improvements](#future-improvements)
+- [Contributing](#contributing)
 
 ## Overview
 
-**Nivara** is a web-based Expense Voucher Management System built to provide a centralized interface for managing expense-related voucher activities.
+**Nivara** is a web-based Expense Voucher Management System designed to centralize expense voucher activities.
 
-The application uses React and Vite for the frontend, integrates with Supabase, and is deployed on Vercel. Its interface includes a login page, dashboard, voucher management area, and review workflow.
+The application uses React and Vite for its frontend, integrates with Supabase, and is deployed on Vercel. Its interface includes a login page, dashboard, voucher management area, and review workflow.
 
-The project is developed in the context of a Full Stack Developer Internship assignment focused on digitizing expense voucher processes and improving the accessibility of voucher information.
+The project was developed in the context of a Full Stack Developer Internship assignment focused on digitizing expense voucher processes and improving the accessibility of voucher information.
 
 | Resource | Link |
 |---|---|
@@ -55,13 +57,13 @@ The project is developed in the context of a Full Stack Developer Internship ass
 
 Manual expense voucher processes can involve paperwork, approval delays, and limited visibility into reimbursement status.
 
-The intended system workflow centralizes voucher-related activities in a web application. The assignment defines three roles:
+The internship assignment defines three application roles:
 
-- **Employee:** creates and tracks expense vouchers.
-- **Director:** reviews, approves, or rejects submitted vouchers.
-- **Accounts Team:** monitors vouchers for reimbursement processing.
+- **Employee:** Creates and tracks expense vouchers.
+- **Director:** Reviews, approves, or rejects submitted vouchers.
+- **Accounts Team:** Monitors vouchers for reimbursement processing.
 
-The application's implemented capabilities should be evaluated against these requirements and documented accurately.
+The implemented functionality and permissions should be evaluated against these requirements and documented accurately.
 
 ## Key Features
 
@@ -71,38 +73,14 @@ The current interface includes the following areas:
 - **Dashboard** — Central interface for accessing application information.
 - **Voucher Management** — Interface for expense voucher operations.
 - **Review Workflow** — Interface for voucher review-related activities.
-- **Supabase Integration** — Backend services integrated with the application.
+- **Supabase Integration** — Backend services and database integration.
 - **Web Deployment** — A deployed version accessible through the live demo.
 
-The exact permissions, workflow transitions, validation rules, and supported actions should be confirmed against the implementation.
+Detailed permissions, workflow transitions, and validation behavior should be confirmed against the implementation.
 
 ## Application Screenshots
 
-The following screenshots show the application's interface and key screens.
-
-### Application Overview
-
-<img width="1895" height="916" alt="image" src="https://github.com/user-attachments/assets/3c264d26-6e58-42ec-9d0e-dc80036ac3bc" />
-
-### 01. Login
-
-<img width="698" height="901" alt="image" src="https://github.com/user-attachments/assets/4abc8155-b4cd-483f-953f-84b27d615652" />
-
-### 02. Dashboard
-
-<img width="1632" height="717" alt="image" src="https://github.com/user-attachments/assets/386464bf-0992-4df4-91c6-7b5ceaff9263" />
-
-### 03. Voucher Management
-
-<img width="1876" height="892" alt="image" src="https://github.com/user-attachments/assets/5b69cfec-7987-46fc-b557-e6073a18c0b2" />
-
-<img width="993" height="333" alt="image" src="https://github.com/user-attachments/assets/b0a592c3-1541-4ae9-bf45-a4b710229982" />
-
-### 04. Review Workflow
-
-<img width="1010" height="491" alt="image" src="https://github.com/user-attachments/assets/04ca8a88-6223-470f-8ff1-8c75543a1be2" />
-
-<img width="1597" height="540" alt="image" src="https://github.com/user-attachments/assets/89592905-de16-4c48-b403-e583d495edbe" />
+**Keep your existing Application Screenshots section here, including all seven original image URLs, unchanged.**
 
 ## Technology Stack
 
@@ -111,36 +89,34 @@ The following screenshots show the application's interface and key screens.
 | React | Frontend user interface |
 | Vite | Development server and build tooling |
 | JavaScript | Application logic |
-| Supabase | Backend services and data integration |
+| Supabase | Authentication and database services |
+| Node.js | Backend JavaScript runtime |
+| Express.js | HTTP API framework |
 | Vercel | Application deployment |
-| Node.js | Server-side runtime, where used |
 
 ## Project Architecture
 
-The repository separates the client application from server-side components.
+The project separates the client application from server-side components and Supabase services.
 
 ```text
-                     User
-                       |
-                       v
-              React + Vite Client
-                       |
-             +---------+---------+
-             |                   |
-             v                   v
-      Server Components       Supabase
-             |                   |
-             +---------+---------+
-                       |
-                       v
-                Application Data
+                 User
+                   |
+                   v
+           React + Vite Client
+              /          \
+             v            v
+      Express Server    Supabase
+             |          Auth / DB
+             |
+             v
+       Protected API Routes
 ```
 
-This is a conceptual overview of the project's components. The exact request flow, authentication mechanism, and division of responsibilities should be confirmed from the source code.
+This is a conceptual diagram based on the supplied client and server code. The client may also communicate directly with Supabase for operations implemented through its Supabase client.
 
 ## Project Structure
 
-The repository includes client and server directories.
+The supplied project structure includes the following files:
 
 ```text
 nivara-expense/
@@ -150,24 +126,23 @@ nivara-expense/
 │   └── package.json
 ├── server/
 │   ├── server.js
+│   ├── authMiddleware.js
 │   ├── roleMiddleware.js
 │   ├── supabase.js
 │   └── package.json
 └── README.md
 ```
 
-This is a high-level representation; additional files and directories may exist.
+This is a high-level representation; other files and directories may exist.
 
 ## Getting Started
-
-Follow these steps to set up the client application for local development.
 
 ### Prerequisites
 
 - Node.js
 - npm
 - Git
-- A Supabase project with the configuration required by the application
+- A Supabase project configured for the application
 
 ### 1. Clone the Repository
 
@@ -183,18 +158,20 @@ cd client
 npm install
 ```
 
-### 3. Configure Environment Variables
+### 3. Configure Client Environment Variables
 
-Create a `.env` file inside the `client/` directory.
+Create a `.env` file inside the `client/` directory:
 
 ```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_publishable_key
 ```
 
-Use the exact variable names expected by your source code. These names are examples based on the current configuration shown in this README; verify them against the client implementation.
+Use the values from your Supabase project. The variable names must match those referenced by the client source code.
 
-### 4. Start the Development Server
+### 4. Start the Client
+
+From the `client/` directory:
 
 ```bash
 npm run dev
@@ -202,7 +179,7 @@ npm run dev
 
 Open the local URL printed in the terminal.
 
-### 5. Create a Production Build
+### 5. Build the Client
 
 ```bash
 npm run build
@@ -214,147 +191,240 @@ npm run build
 npm run preview
 ```
 
-### Server Setup
+### 7. Start the Backend
 
-The repository includes a `server/` directory. Review `server/package.json` to identify its scripts and dependencies before starting the server independently.
+Open a separate terminal from the repository root:
 
-The server's required environment variables and startup commands should be documented after confirming them from the actual implementation.
+```bash
+cd server
+npm install
+npm run dev
+```
+
+For a normal server start without the development watcher:
+
+```bash
+npm start
+```
+
+The Express server defaults to port `5000`, unless the `PORT` environment variable is configured.
 
 ## Environment Variables
 
-Use environment variables to configure the application for local development and deployment.
+### Client
 
-Example client `.env.example`:
+Create `client/.env.example` with placeholders only:
 
 ```env
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 ```
 
-Create the example file without real credentials and commit the example, not your private `.env` file.
+### Server
 
-If the server requires additional variables, document them in a separate server-side example file.
+The supplied server code references these environment variables:
 
-**Important:** Never commit passwords, private tokens, or Supabase service-role keys. Variables prefixed with `VITE_` are exposed to the frontend build and must not contain server-side secrets.
+```env
+PORT=5000
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+```
 
-## Database Schema
+The authentication middleware also imports a backend Supabase client from `server/supabase.js`. Check that file for any additional required variables before completing the server environment configuration.
 
-The project uses Supabase, but the exact database tables, columns, relationships, and policies have not been established by this README alone.
-
-For the internship submission, document the actual schema from your Supabase project or SQL migration files.
-
-Include the following information for each existing table:
-
-| Item | What to document |
-|---|---|
-| Table name | Actual database table name |
-| Primary key | Actual primary-key column |
-| Columns | Names, types, and nullability |
-| Relationships | Actual foreign keys and references |
-| Constraints | Unique constraints and validation rules |
-| Access policies | Applicable Row Level Security (RLS) policies |
-
-### Suggested Schema Documentation
-
-The assignment describes voucher information such as voucher number, employee information, department, expense details, amount, status, signatures, approval date, rejection reason, and audit timestamps.
-
-Use these requirements as a checklist when describing the actual database design. Do not assume that every field is stored in a particular table or that signatures are stored separately.
-
-**Before submission:** add the real table definitions or link to your SQL migrations and explain how the tables relate to one another.
+**Security:** Never commit `.env` files, passwords, access tokens, JWT secrets, or Supabase service-role keys. Variables prefixed with `VITE_` are included in the frontend build and must not contain server-side secrets.
 
 ## API Documentation
 
-The repository contains a server directory, but this README does not establish the exact REST endpoints implemented by the project.
+The backend uses Express.js and Supabase. The endpoints below are confirmed by the supplied `server.js` and middleware code.
 
-Document each actual endpoint using the following format:
+### Base URL
 
-| Field | Description |
+- Local development: `http://localhost:5000`
+- Production: Use the configured backend deployment URL.
+
+### Available Endpoints
+
+| Method | Endpoint | Authentication | Description |
+|---|---|---|---|
+| `GET` | `/` | Not required by route | Returns the API welcome message and running status. |
+| `GET` | `/api/health` | Not required by route | Returns the API health status. |
+| `GET` | `/api/test-route` | Not required by route | Tests that routing works. |
+| `GET` | `/api/me` | Required | Returns the authenticated user's ID and email. |
+| `GET` | `/api/db-check` | Not required by route | Checks whether the backend can query the `vouchers` table. |
+| `GET` | `/api/vouchers` | Required; employee, director, or accounts role | Retrieves vouchers using role-based query logic. |
+
+### Example Responses
+
+#### `GET /`
+
+```json
+{
+  "message": "Welcome to the Nivara Expense Management API",
+  "status": "running"
+}
+```
+
+#### `GET /api/health`
+
+```json
+{
+  "status": "healthy",
+  "application": "Nivara"
+}
+```
+
+#### `GET /api/test-route`
+
+```json
+{
+  "message": "Test route works"
+}
+```
+
+#### `GET /api/me`
+
+Requires a valid Supabase access token.
+
+```json
+{
+  "message": "Authentication successful",
+  "user": {
+    "id": "authenticated-user-id",
+    "email": "user@example.com"
+  }
+}
+```
+
+The user values above are illustrative placeholders.
+
+#### `GET /api/vouchers`
+
+A successful response has this structure:
+
+```json
+{
+  "vouchers": []
+}
+```
+
+The empty array is an example. Actual results depend on database contents and access policies.
+
+The route orders records by `created_at` in descending order. For employees, the query filters records by matching `employee_id` to the authenticated user's ID. Director and accounts users do not receive that additional employee-specific filter in this route.
+
+### Authentication and Authorization
+
+Nivara uses Supabase Auth to validate API access tokens. Protected routes require this HTTP header:
+
+```http
+Authorization: Bearer <supabase_access_token>
+```
+
+The `authenticateUser` middleware validates the token using Supabase Auth's `getUser()` method.
+
+The `requireRole` middleware then looks up the user's role in `profiles.role`, matching `profiles.id` with the authenticated user's ID.
+
+The voucher-list route permits these roles:
+
+- `employee`
+- `director`
+- `accounts`
+
+The role middleware creates a Supabase client that forwards the user's access token. Database permissions and Row Level Security (RLS) policies may impose additional restrictions.
+
+### Error Responses
+
+| HTTP status | Condition |
 |---|---|
-| Method and path | Actual HTTP method and route |
-| Purpose | What the endpoint does |
-| Authentication | Whether a valid session or token is required |
-| Authorization | Which roles may call the endpoint |
-| Request | Required parameters and request body |
-| Response | Actual response structure |
-| Errors | Relevant HTTP status codes and error messages |
+| `401 Unauthorized` | Missing or invalid authentication token, or authentication failure |
+| `403 Forbidden` | Missing profile or role not allowed by the route |
+| `500 Internal Server Error` | Role lookup or voucher query failure |
 
-### Endpoint Reference
+The API returns JSON error messages defined by the relevant middleware and route handlers.
 
-Populate this table from the actual server routes. Do not treat the example operations as implemented endpoints.
+### Database Connectivity Check
 
-| Operation | Endpoint |
-|---|---|
-| Retrieve vouchers | Add actual implemented route, if present |
-| Retrieve voucher details | Add actual implemented route, if present |
-| Create a voucher | Add actual implemented route, if present |
-| Update a draft | Add actual implemented route, if present |
-| Delete a draft | Add actual implemented route, if present |
-| Submit a voucher | Add actual implemented route, if present |
-| Approve or reject a voucher | Add actual implemented route, if present |
+`GET /api/db-check` queries the `vouchers` table and returns a connected status when the query succeeds. It returns HTTP `500` if the query fails.
 
-If the client accesses Supabase directly for some operations, document those data operations and the relevant database access policies instead of inventing REST endpoints.
+### Endpoint Scope
+
+The supplied backend code does not establish separate Express routes for creating, updating, deleting, submitting, approving, or rejecting vouchers. If these operations are implemented through direct Supabase client calls, document those operations and the associated database policies after reviewing the relevant frontend and schema code.
+
+## Database Schema
+
+The supplied code confirms references to two Supabase tables.
+
+| Table | Confirmed columns | Purpose |
+|---|---|---|
+| `profiles` | `id`, `role` | Retrieves the authenticated user's application role. |
+| `vouchers` | `id`, `employee_id`, `created_at` | Supports the database check and voucher retrieval. |
+
+This is not the complete database schema. Column data types, nullability, primary and foreign keys, constraints, indexes, additional fields, and RLS policies must be verified against the actual Supabase schema or SQL migrations.
+
+The internship assignment can be used as a checklist when reviewing whether the database supports voucher numbers, employee information, department, expense details, amounts, statuses, signatures, approval dates, rejection reasons, and audit timestamps. Do not describe these as actual columns until verified.
 
 ## Business Rules and Validation
 
-The internship assignment defines the following business requirements. Verify each one against the current implementation.
+The internship assignment specifies the following requirements. Each should be checked against the implementation before being described as complete:
 
-- Every voucher must have a unique voucher number.
+- Each voucher should have a unique voucher number.
 - New vouchers should begin in Draft status.
-- Department, expense title, expense date, and amount are mandatory.
+- Department, expense title, expense date, and amount should be mandatory.
 - The amount must be greater than zero.
-- An employee signature is required before submission.
-- Employees may edit or delete vouchers only while they are drafts.
-- Submitted vouchers become read-only to employees.
-- Only the Director may approve or reject eligible vouchers.
-- A Director signature is required for approval.
-- Rejection requires a reason.
-- Employees may access only their own vouchers.
-- The Director and Accounts Team may access organization-wide voucher information, according to their permissions.
+- An employee signature should be required before submission.
+- Employees should only edit or delete vouchers while they are drafts.
+- Submitted vouchers should become read-only to employees.
+- Only the Director should approve or reject eligible vouchers.
+- Approval should require a Director signature.
+- Rejection should require a reason.
+- Employees should only access their own vouchers.
+- Director and Accounts access should follow their assigned permissions.
 
-The frontend should provide useful validation feedback, while sensitive business rules should also be enforced by the backend or database.
+Frontend validation improves usability, but sensitive rules should also be enforced by the backend or database where appropriate.
 
 ## Security Considerations
 
-Expense voucher systems may handle personal, financial, and signature information. Appropriate controls should protect this data.
+Expense voucher systems may handle personal, financial, and signature information. Security controls should be reviewed carefully.
 
-Security measures to implement and verify include:
+The supplied backend code confirms token verification on protected routes, role lookup, and an employee-specific query filter on the voucher-list route.
 
-- Authentication for protected application areas.
-- Role-based authorization for sensitive actions.
-- Ownership checks for employee voucher access.
-- Server-side or database-level enforcement of permissions.
-- Validation of permitted voucher status transitions.
-- Secure handling and access control for uploaded signatures.
-- Appropriate Supabase Row Level Security policies.
-- Secure management of environment variables and deployment secrets.
+Additional controls to verify include:
 
-Hiding an interface element or protecting a frontend route alone does not enforce data access permissions.
+- Database-level authorization and appropriate RLS policies.
+- Access restrictions for every voucher operation.
+- Enforcement of valid voucher status transitions.
+- Secure storage and access control for signatures.
+- Safe management of environment variables and deployment secrets.
+- Protection against unauthorized modification of user roles.
+
+The `/api/db-check` and `/api/test-route` routes do not use authentication middleware in the supplied code.
 
 ## Assumptions and Limitations
 
-The following details require confirmation from the implementation and should be documented accurately for evaluation:
+The following details require further verification:
 
-- **Account management:** how users are created and how their roles are assigned.
-- **Voucher numbering:** how unique voucher numbers are generated.
-- **Signature storage:** where signature images are stored and how access is controlled.
-- **Workflow transitions:** which status changes are allowed and whether rejected vouchers can be resubmitted.
-- **Accounts processing:** whether Accounts users can mark vouchers as paid or only view approved vouchers.
-- **Search and filtering:** which filters and sorting options are implemented.
-- **Backend architecture:** which operations use server routes and which access Supabase directly.
+- **Account management:** How users are created and assigned roles.
+- **Voucher numbering:** How unique voucher numbers are generated.
+- **Signature storage:** Where signature images are stored and how access is controlled.
+- **Workflow transitions:** Which status changes are allowed and whether rejected vouchers can be resubmitted.
+- **Accounts processing:** Whether Accounts users can mark vouchers as paid or only view approved vouchers.
+- **Search and filtering:** Which filters and sorting options are implemented.
+- **Database security:** The actual RLS policies and database constraints.
+- **Backend architecture:** Which operations use Express routes and which access Supabase directly.
 
-Any functionality not implemented should be identified as a limitation or planned enhancement rather than described as complete.
+Any functionality not implemented should be identified as a limitation or planned enhancement.
 
 ## Deployment
 
 The application is deployed on Vercel.
 
-**Live Demo:** https://nivara-expense.vercel.app/
+**Live Demo:** [https://nivara-expense.vercel.app/](https://nivara-expense.vercel.app/)
 
-For another deployment, configure the correct project root, build command, output settings, and environment variables based on the actual application configuration.
+For other deployments, configure the appropriate project root, build command, output settings, and environment variables according to the application configuration.
 
 ## Future Improvements
 
-Potential enhancements, depending on the current implementation, include:
+Potential enhancements include:
 
 - Advanced voucher search and filtering.
 - Role-specific dashboard analytics.
@@ -364,7 +434,7 @@ Potential enhancements, depending on the current implementation, include:
 - Audit logging for important voucher actions.
 - Improved accessibility and responsive layouts.
 
-These are suggestions for future development, not claims about existing functionality.
+These are potential enhancements, not claims about existing functionality.
 
 ## Contributing
 
@@ -375,12 +445,10 @@ Suggestions and improvements are welcome.
 3. Implement and test your changes.
 4. Submit a pull request describing the improvement.
 
-
-
 ---
 
 <p align="center">
   <strong>Nivara — Bringing structure to expense voucher workflows.</strong>
   <br />
-  Built with React, Vite and Supabase.
+  Built with React, Vite, Express.js, and Supabase.
 </p>
