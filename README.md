@@ -375,9 +375,7 @@ Suggestions and improvements are welcome.
 3. Implement and test your changes.
 4. Submit a pull request describing the improvement.
 
-## License
 
-Add a license file if you intend to specify how others may use, modify, or distribute this project.
 
 ---
 
