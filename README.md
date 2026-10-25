@@ -80,7 +80,24 @@ Detailed permissions, workflow transitions, and validation behavior should be co
 
 ## Application Screenshots
 
-**Keep your existing Application Screenshots section here, including all seven original image URLs, unchanged.**
+## Screenshots
+
+### Dashboard
+![Dashboard](https://github.com/user-attachments/assets/3c264d26-6e58-42ec-9d0e-dc80036ac3bc)
+
+### Voucher Management
+![Voucher Management](https://github.com/user-attachments/assets/4abc8155-b4cd-483f-953f-84b27d615652)
+
+### Additional Screens
+![Screen 3](https://github.com/user-attachments/assets/386464bf-0992-4df4-91c6-7b5ceaff9263)
+
+![Screen 4](https://github.com/user-attachments/assets/5b69cfec-7987-46fc-b557-e6073a18c0b2)
+
+![Screen 5](https://github.com/user-attachments/assets/b0a592c3-1541-4ae9-bf45-a4b710229982)
+
+![Screen 6](https://github.com/user-attachments/assets/04ca8a88-6223-470f-8ff1-8c75543a1be2)
+
+![Screen 7](https://github.com/user-attachments/assets/89592905-de16-4c48-b403-e583d495edbe)
 
 ## Technology Stack
 
