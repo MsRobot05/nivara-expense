@@ -95,8 +95,6 @@ Detailed permissions, workflow transitions, and validation behavior should be co
 
 ![Screen 5](https://github.com/user-attachments/assets/b0a592c3-1541-4ae9-bf45-a4b710229982)
 
-![Screen 6](https://github.com/user-attachments/assets/04ca8a88-6223-470f-8ff1-8c75543a1be2)
-
 ![Screen 7](https://github.com/user-attachments/assets/89592905-de16-4c48-b403-e583d495edbe)
 
 ## Technology Stack
