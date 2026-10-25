@@ -5,9 +5,9 @@
   <br />
   Built with React, Vite and Supabase.
   <br /><br />
-  <a href="https://nivara-expense.vercel.app/"><strong>🚀 View Live Demo</strong></a>
+  <a href="https://nivara-expense.vercel.app/"><strong> View Live Demo</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/MsRobot05/nivara-expense"><strong>💻 Source Code</strong></a>
+  <a href="https://github.com/MsRobot05/nivara-expense"><strong>  Source Code</strong></a>
 </p>
 
 <p align="center">
